@@ -1,87 +1,81 @@
-# Healthcare-Analysis-PGP
+Healthcare_analysis-pgp
 
 DESCRIPTION
 
 Problem Statement
-It is a critical requirement for business to understand the value derived from a customer. RFM is a method used for analyzing customer value.
-Customer segmentation is the practice of segregating the customer base into groups of individuals based on some common characteristics such as age, gender, interests, and spending habits
-Perform customer segmentation using RFM analysis. The resulting segments can be ordered from most valuable (highest recency, frequency, and value) to least valuable (lowest recency, frequency, and value).
+NIDDK (National Institute of Diabetes and Digestive and Kidney Diseases) research creates knowledge about and treatments for the most chronic, costly, and consequential diseases.
+The dataset used in this project is originally from NIDDK. The objective is to predict whether or not a patient has diabetes, based on certain diagnostic measurements included in the dataset.
+Build a model to accurately predict whether the patients in the dataset have diabetes or not.
 Dataset Description
-This is a transnational data set which contains all the transactions that occurred between 01/12/2010 and 09/12/2011 for a UK-based and registered non-store online retail. The company mainly sells unique and all-occasion gifts.
+The datasets consists of several medical predictor variables and one target variable (Outcome). Predictor variables includes the number of pregnancies the patient has had, their BMI, insulin level, age, and more.
+
+ 
 
 Variables	Description
-InvoiceNo	Invoice number. Nominal, a six digit integral number uniquely assigned to each transaction. If this code starts with letter 'c', it indicates a cancellation
-StockCode	Product (item) code. Nominal, a five digit integral number uniquely assigned to each distinct product
-Description	Product (item) name. Nominal
-Quantity	The quantities of each product (item) per transaction. Numeric
-InvoiceDate	Invoice Date and time. Numeric, the day and time when each transaction was generated
-UnitPrice	Unit price. Numeric, product price per unit in sterling
-CustomerID	Customer number. Nominal, a six digit integral number uniquely assigned to each customer
-Country	Country name. Nominal, the name of the country where each customer resides
+Pregnancies	Number of times pregnant
+Glucose	Plasma glucose concentration in an oral glucose tolerance test
+BloodPressure	Diastolic blood pressure (mm Hg)
+SkinThickness	Triceps skinfold thickness (mm)
+Insulin	Two hour serum insulin
+BMI	Body Mass Index
+DiabetesPedigreeFunction	Diabetes pedigree function
+Age	Age in years
+Outcome	Class variable (either 0 or 1). 268 of 768 values are 1, and the others are 0
 Project Task: Week 1
-Data Cleaning:
+Data Exploration:
 
-1. Perform a preliminary data inspection and data cleaning.
+1. Perform descriptive analysis. Understand the variables and their corresponding values. On the columns below, a value of zero does not make sense and thus indicates missing value:
 
-a. Check for missing data and formulate an apt strategy to treat them.
+• Glucose
 
-b. Remove duplicate data records.
+• BloodPressure
 
-c. Perform descriptive analytics on the given data.
+• SkinThickness
 
-Data Transformation:
+• Insulin
 
-2. Perform cohort analysis (a cohort is a group of subjects that share a defining characteristic). Observe how a cohort behaves across time and compare it to other cohorts.
+• BMI
 
-a. Create month cohorts and analyze active customers for each cohort.
+2. Visually explore these variables using histograms. Treat the missing values accordingly.
 
-b. Analyze the retention rate of customers.
+3. There are integer and float data type variables in this dataset. Create a count (frequency) plot describing the data types and the count of variables. 
 
 Project Task: Week 2
-Data Modeling :
+Data Exploration:
 
-1. Build a RFM (Recency Frequency Monetary) model. Recency means the number of days since a customer made the last purchase. Frequency is the number of purchase in a given period. It could be 3 months, 6 months or 1 year. Monetary is the total amount of money a customer spent in that given period. Therefore, big spenders will be differentiated among other customers such as MVP (Minimum Viable Product) or VIP.
+1. Check the balance of the data by plotting the count of outcomes by their value. Describe your findings and plan future course of action.
 
-2. Calculate RFM metrics.
+2. Create scatter charts between the pair of variables to understand the relationships. Describe your findings.
 
-3. Build RFM Segments. Give recency, frequency, and monetary scores individually by dividing them into quartiles.
+3. Perform correlation analysis. Visually explore it using a heat map.
 
-b1. Combine three ratings to get a RFM segment (as strings).
-
-b2. Get the RFM score by adding up the three ratings.
-
-b3. Analyze the RFM segments by summarizing them and comment on the findings.
-
-Note: Rate “recency" for customer who has been active more recently higher than the less recent customer, because each company wants its customers to be recent.
-
-Note: Rate “frequency" and “monetary" higher, because the company wants the customer to visit more often and spend more money
+ 
 
 Project Task: Week 3
-Data Modeling :
+Data Modeling:
 
-1. Create clusters using k-means clustering algorithm.
+1. Devise strategies for model building. It is important to decide the right validation framework. Express your thought process.
 
-a. Prepare the data for the algorithm. If the data is asymmetrically distributed, manage the skewness with appropriate transformation. Standardize the data.
+2. Apply an appropriate classification algorithm to build a model. Compare various models with the results from KNN algorithm.
 
-b. Decide the optimum number of clusters to be formed.
-
-c. Analyze these clusters and comment on the results.
+ 
 
 Project Task: Week 4
+
+Data Modeling:
+
+1. Create a classification report by analyzing sensitivity, specificity, AUC (ROC curve), etc. Please be descriptive to explain what values of these parameter you have used.
+
 Data Reporting:
 
-1. Create a dashboard in tableau by choosing appropriate chart types and metrics useful for the business. The dashboard must entail the following:
+2. Create a dashboard in tableau by choosing appropriate chart types and metrics useful for the business. The dashboard must entail the following:
 
-a. Country-wise analysis to demonstrate average spend. Use a bar chart to show the monthly figures
+a. Pie chart to describe the diabetic or non-diabetic population
 
-b. Bar graph of top 15 products which are mostly ordered by the users to show the number of products sold
+b. Scatter charts between relevant variables to analyze the relationships
 
-c. Bar graph to show the count of orders vs. hours throughout the day
+c. Histogram or frequency charts to analyze the distribution of the data
 
-d. Plot the distribution of RFM values using histogram and frequency charts
+d. Heatmap of correlation analysis among the relevant variables
 
-e. Plot error (cost) vs. number of clusters selected
-
-f. Visualize to compare the RFM values of the clusters using heatmap
-
-Download the data sets from here .
+e. Create bins of these age values: 20-25, 25-30, 30-35, etc. Analyze different variables for these age brackets using a bubble chart.
